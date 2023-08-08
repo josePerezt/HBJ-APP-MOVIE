@@ -1,9 +1,10 @@
 import "./App.css";
+import HomePage from "./component/home/HomePage";
 
 function App() {
   return (
     <>
-      <h1 className="title-app">Aca se desarrollara una app de peliculas 🎞️</h1>
+      <HomePage />
     </>
   );
 }
