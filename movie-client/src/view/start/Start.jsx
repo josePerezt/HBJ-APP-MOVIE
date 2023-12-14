@@ -1,5 +1,12 @@
+import Cards from "../../component/cards/Cards";
+import { ContainerStart } from "./StartStyled";
+
 const Start = () => {
-  return <div>ACA SE MOSTRARAN TODAS LA PELICULAS Y LAS SERIES</div>;
+  return (
+    <ContainerStart>
+      <Cards />
+    </ContainerStart>
+  );
 };
 
 export default Start;
