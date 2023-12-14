@@ -2,7 +2,8 @@ import { styled } from "styled-components";
 
 export const ContainerHome = styled.div`
   display: flex;
-  min-height: 100vh;
+  min-height: 100%;
+  /* border: thin solid orange; */
 `;
 
 export const ContainerView = styled.div`
