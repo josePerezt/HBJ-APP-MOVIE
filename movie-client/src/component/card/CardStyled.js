@@ -3,7 +3,7 @@ export const ContainerCard = styled.div`
   width: 300px;
   height: 300px;
   border-radius: 8px;
-  margin: 0 8px;
+  margin-left: 8px;
 
   img {
     width: 200px;
