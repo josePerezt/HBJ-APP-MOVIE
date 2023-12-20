@@ -1,7 +1,8 @@
-import { ALLMOVIES } from "./type";
+import { ALLMOVIES, AllTV } from "./type";
 
 const initialState = {
   allMovies: [],
+  allTv: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -10,6 +11,11 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         allMovies: payload,
+      };
+    case AllTV:
+      return {
+        ...state,
+        allTv: payload,
       };
     default: {
       return { ...state };

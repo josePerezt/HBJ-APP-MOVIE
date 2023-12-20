@@ -6,7 +6,7 @@ import Movies from "./view/movies/Movies";
 import Explore from "./view/explore/Explore";
 import Series from "./view/series/Series";
 import { useDispatch } from "react-redux";
-import { movies } from "./redux/actions";
+import { movies, tv } from "./redux/actions";
 import { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Brands from "./view/brands/Brands";
@@ -18,6 +18,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(movies());
+    dispatch(tv());
   }, []);
   return (
     <div>

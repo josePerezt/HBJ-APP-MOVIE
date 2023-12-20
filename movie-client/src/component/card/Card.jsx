@@ -1,10 +1,10 @@
 import React from "react";
 import { ContainerCard } from "./CardStyled";
 
-function Card({ image }) {
+function Card(props) {
   return (
     <ContainerCard>
-      <img src={image} />
+      <img src={props.image} />
     </ContainerCard>
   );
 }

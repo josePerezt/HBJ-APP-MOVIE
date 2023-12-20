@@ -15,8 +15,9 @@ const allTv = async () => {
 
   const newData = results.map((items, index) => {
     return {
+      id: ++index,
       items: items.name,
-      id: index,
+      image: `${IMAGE_URL}${items.poster_path}`,
     };
   });
   return newData;
