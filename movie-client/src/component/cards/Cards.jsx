@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import Card from "../card/Card";
-import { ContainerCards } from "./CardsStyled";
+import { ContainerCards, ImagePresent } from "./CardsStyled";
 
 function Cards() {
   const allMovies = useSelector((state) => state.allMovies);
@@ -9,16 +9,9 @@ function Cards() {
 
   return (
     <ContainerCards>
+      <ImagePresent image={allMovies[3]?.image}> </ImagePresent>
       <div>
-        <img
-          src={allMovies[0]?.image}
-          alt="reciente"
-          width="100%"
-          height="50%"
-        />
-      </div>
-      <div>
-        <h4>Lo mas visto</h4>
+        <h4>Lo mas visto </h4>
       </div>
       <div className="cards">
         {allMovies.map(({ image, title, id }) => {
