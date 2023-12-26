@@ -5,16 +5,19 @@ export const ContainerCards = styled.div`
   height: 52%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   h4 {
     margin-bottom: 0;
-    /* border: thin solid orangered; */
   }
   .cards {
     /* border: thin solid blue; */
     overflow-x: auto;
+    width: 100%;
+
     display: flex;
     padding: 5px;
+    margin-top: 8px;
     /* margin-left: 5px; */
   }
 `;

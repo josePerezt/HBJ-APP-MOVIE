@@ -1,11 +1,12 @@
 require("dotenv").config();
-const { API_KEY } = process.env;
 const axios = require("axios");
+const { API_KEY } = process.env;
 
-const allMovies = async () => {
-  const API_URL = "https://api.themoviedb.org/3/discover/movie";
+const topMovies = async () => {
+  const API_URL = "https://api.themoviedb.org/3/movie/top_rated";
   const IMAGE_URL = "https://image.tmdb.org/t/p/original";
-  const { data } = await axios.get(API_URL, {
+
+  const { data } = await axios(API_URL, {
     params: {
       api_key: API_KEY,
     },
@@ -14,7 +15,7 @@ const allMovies = async () => {
   const newData = results.map((items) => {
     const movie = {
       id: items.id,
-      language: items.original_language,
+      language: items.language,
       title: items.title,
       overview: items.overview,
       vote: items.vote_average,
@@ -26,4 +27,4 @@ const allMovies = async () => {
   return newData;
 };
 
-module.exports = allMovies;
+module.exports = topMovies;

@@ -1,2 +1,3 @@
 export const ALLMOVIES = "ALLMOVIES";
-export const AllTV = "ALLTV";
+export const ALLTV = "ALLTV";
+export const TOPMOVIES = "TOPMOVIES";

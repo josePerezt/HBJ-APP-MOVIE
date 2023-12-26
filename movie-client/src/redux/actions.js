@@ -1,4 +1,4 @@
-import { ALLMOVIES, AllTV } from "./type";
+import { ALLMOVIES, ALLTV, TOPMOVIES } from "./type";
 import axios from "axios";
 
 const URL = "http://localhost:3001/";
@@ -14,6 +14,13 @@ export const movies = () => {
 export const tv = () => {
   return async function (dispatch) {
     const { data } = await axios(URL + "allTv");
-    dispatch({ type: AllTV, payload: data });
+    dispatch({ type: ALLTV, payload: data });
+  };
+};
+
+export const topMovies = () => {
+  return async function (dispatch) {
+    const { data } = await axios(URL + "topMovies");
+    dispatch({ type: TOPMOVIES, payload: data });
   };
 };
