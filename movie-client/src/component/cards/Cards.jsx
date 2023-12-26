@@ -10,6 +10,7 @@ function Cards() {
   const allMovies = useSelector((state) => state.allMovies);
   const allTv = useSelector((state) => state.allTv);
   const topMovies = useSelector((state) => state.topMovies);
+  const topTv = useSelector((state) => state.topTv);
   console.log(topMovies);
 
   return (
@@ -54,6 +55,14 @@ function Cards() {
           </div>
           <div className="cards">
             {topMovies.map(({ name, image, id }) => {
+              return <Card id={id} key={id} image={image} name={name} />;
+            })}
+          </div>
+          <div>
+            <h4>Las Series mas Valoradas</h4>
+          </div>
+          <div className="cards">
+            {topTv.map(({ name, image, id }) => {
               return <Card id={id} key={id} image={image} name={name} />;
             })}
           </div>
