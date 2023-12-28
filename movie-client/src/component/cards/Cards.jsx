@@ -3,7 +3,9 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import Card from "../card/Card";
-import { ContainerCards, ImagePresent } from "./CardsStyled";
+import { ContainerCards, ImagePresent, Slider } from "./CardsStyled";
+import mayor from "../../assets/mayor.png";
+import menor from "../../assets/menor.png";
 
 function Cards() {
   const location = useLocation();
@@ -16,57 +18,60 @@ function Cards() {
   return (
     <ContainerCards>
       {location.pathname === "/peliculas" ? (
-        <div>
+        <>
           <h4>Solo en HBJ</h4>
-          <div className="cards">
+          <Slider>
             {allMovies.map(({ image, title, id }) => {
               return <Card id={id} key={id} image={image} title={title} />;
             })}
-          </div>
+          </Slider>
           <h4>Lo mas nuevo</h4>
-          <div className="cards">
+          <Slider>
             {allMovies.map(({ image, title, id }) => {
               return <Card id={id} key={id} image={image} title={title} />;
             })}
-          </div>
-        </div>
+          </Slider>
+        </>
       ) : null}
       {location.pathname === "/inicio" ? (
-        <div>
+        <>
           <ImagePresent image={allMovies[3]?.image}> </ImagePresent>
           <div>
             <h4>Solo en HBJ Pro </h4>
           </div>
-          <div className="cards">
+
+          <img src={menor} className="prev" />
+          <Slider>
             {allMovies.map(({ image, title, id }) => {
               return <Card id={id} key={id} image={image} title={title} />;
             })}
-          </div>
+          </Slider>
+          <img src={mayor} className="next" />
           <div>
             <h4>Ponte al dia con tus series de TV favoritas</h4>
           </div>
-          <div className="cards">
+          <Slider>
             {allTv.map(({ name, image, id }) => {
               return <Card id={id} key={id} image={image} name={name} />;
             })}
-          </div>
+          </Slider>
           <div>
             <h4>Las Peliculas mas Valoradas</h4>
           </div>
-          <div className="cards">
+          <Slider>
             {topMovies.map(({ name, image, id }) => {
               return <Card id={id} key={id} image={image} name={name} />;
             })}
-          </div>
+          </Slider>
           <div>
             <h4>Las Series mas Valoradas</h4>
           </div>
-          <div className="cards">
+          <Slider>
             {topTv.map(({ name, image, id }) => {
               return <Card id={id} key={id} image={image} name={name} />;
             })}
-          </div>
-        </div>
+          </Slider>
+        </>
       ) : null}
     </ContainerCards>
   );
