@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -13,8 +13,27 @@ function Cards() {
   const allTv = useSelector((state) => state.allTv);
   const topMovies = useSelector((state) => state.topMovies);
   const topTv = useSelector((state) => state.topTv);
-  console.log(topMovies);
 
+  const carSliderRef = useRef(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleSliderPrev = (e) => {
+    const scrollDecrement = 300;
+    const newScrollPosition = scrollPosition - scrollDecrement;
+    carSliderRef.current.scrollTo({
+      left: newScrollPosition,
+      behavior: "smooth",
+    });
+  };
+  const handleSliderNext = (e) => {
+    const scrollIncrement = 300;
+    const newScrollPosition = scrollPosition + scrollIncrement;
+    carSliderRef.current.scrollTo({
+      left: newScrollPosition,
+      behavior: "smooth",
+    });
+    setScrollPosition(newScrollPosition);
+  };
   return (
     <ContainerCards>
       {location.pathname === "/peliculas" ? (
@@ -39,14 +58,23 @@ function Cards() {
           <div>
             <h4>Solo en HBJ Pro </h4>
           </div>
-
-          <img src={menor} className="prev" />
-          <Slider>
-            {allMovies.map(({ image, title, id }) => {
-              return <Card id={id} key={id} image={image} title={title} />;
-            })}
-          </Slider>
-          <img src={mayor} className="next" />
+          <div className="container-slider">
+            <img
+              src={menor}
+              className="control prev"
+              onClick={handleSliderPrev}
+            />
+            <Slider ref={carSliderRef}>
+              {allMovies.map(({ image, title, id }) => {
+                return <Card id={id} key={id} image={image} title={title} />;
+              })}
+            </Slider>
+            <img
+              src={mayor}
+              className="control next"
+              onClick={handleSliderNext}
+            />
+          </div>
           <div>
             <h4>Ponte al dia con tus series de TV favoritas</h4>
           </div>

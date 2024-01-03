@@ -25,6 +25,7 @@ export const ContainerSideBar = styled.nav`
   height: 100%;
   position: fixed;
   transition: 1s;
+  z-index: 100;
   span {
     margin-left: 30px;
     font-size: 1px;
