@@ -57,7 +57,8 @@ function Cards() {
       {location.pathname === "/inicio" ? (
         <>
           <ImagePresent image={allMovies[3]?.image}> </ImagePresent>
-          <Carrousel />
+          <Carrousel allMovies={allMovies} />
+          <Carrousel allTv={allTv} />
           <div>
             <h4>Solo en HBJ Pro </h4>
           </div>
