@@ -6,6 +6,7 @@ import Card from "../card/Card";
 import { ContainerCards, ImagePresent, Slider } from "./CardsStyled";
 import mayor from "../../assets/mayor.png";
 import menor from "../../assets/menor.png";
+import Carrousel from "../carousel/Carousel";
 
 function Cards() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function Cards() {
       left: newScrollPosition,
       behavior: "smooth",
     });
+    setScrollPosition(newScrollPosition);
   };
   const handleSliderNext = (e) => {
     const scrollIncrement = 300;
@@ -55,6 +57,7 @@ function Cards() {
       {location.pathname === "/inicio" ? (
         <>
           <ImagePresent image={allMovies[3]?.image}> </ImagePresent>
+          <Carrousel />
           <div>
             <h4>Solo en HBJ Pro </h4>
           </div>
